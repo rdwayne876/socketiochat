@@ -39,6 +39,20 @@
                 }
             })
 
+            socket.on( 'new user', function (){
+              var item = document.createElement( 'li')
+              item.textContent = "User connected"
+              messages.appendChild( item)
+              window.scrollTo( 0, document.body.scrollHeight)
+            })
+
+            socket.on( 'disconnected', function (){
+              var item = document.createElement( 'li')
+              item.textContent = "User disconnected"
+              messages.appendChild( item)
+              window.scrollTo( 0, document.body.scrollHeight)
+            })
+
             socket.on( 'chat message', function( msg) {
                 var item = document.createElement( 'li')
                 item.textContent = msg
